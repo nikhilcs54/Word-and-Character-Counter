@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Word Counter</title>
+    <style>
+        body{
+            padding:50px 100px;
+        }
+        h1{
+            text-align: center;
+            background-color: #0067B0;
+            color: white;
+            padding: 0px;
+            margin:0px;
+        }
+        #textbox{
+            width:99.3%;
+            border-color: #0067B0;
+            font-size: 15px;
+        }
+        p{
+            text-align: center;
+            background-color: #0067B0;
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            padding: 1opx;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Word and Character Counter</h1>
+    <textarea id="textbox" rows="30" cols="30"></textarea>
+    <p>
+        <span id="word">0</span> Words 
+        <span id="char">0</span> Characteres
+    </p>
+    <script>
+        var textbox=document.getElementById("textbox");
+        textbox.addEventListener('input',function(){
+          var text=this.value;
+          var char=text.length;
+          document.getElementById("char").innerHTML=char;
+         text=text.trim();//removes spaces from front and end 
+         var words=text.split(" ");
+         var clean=words.filter(function(x){
+            return x!= "";
+        });
+        document.getElementById("word").innerHTML=clean.length;
+    });
+    </script>
+</body>
+</html>
